@@ -16,8 +16,6 @@ export default class PostAddForm extends React.Component {
         }
 
         onValueChange(e){
-            console.log(e.target.value);
-            
             this.setState({
                 text: e.target.value
             });
@@ -30,7 +28,6 @@ export default class PostAddForm extends React.Component {
                 text : ''
             });
         }
-
 
     render() {
         return(
