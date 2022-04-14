@@ -1,54 +1,35 @@
-import React from "react";
-import "./post-add_form.css";
+import React, { useState } from 'react';
+import './post-add_form.css';
 
-export default class PostAddForm extends React.Component {
-        
-        constructor(props){
-            super(props);
-            
-            this.state = {
-                text: ''
-            }
-            
+const PostAddForm = ({ onAdd }) => {
+    const [text, setText] = useState('');
 
-            this.onValueChange = this.onValueChange.bind(this);
-            this.onSubmit = this.onSubmit.bind(this);
-        }
+    const onValueChange = (e) => {
+        setText(e.target.value);
+        console.log(text);
+    };
 
-        onValueChange(e){
-            this.setState({
-                text: e.target.value
-            });
-        }
+    const onSubmit = (e) => {
+        e.preventDefault();
+        onAdd(text);
+        setText('');
+    };
 
-        onSubmit(e){
-            e.preventDefault();
-            this.props.onAdd(this.state.text);
-            this.setState({
-                text : ''
-            });
-        }
-
-    render() {
-        return(
-            <form 
-            className="bottom-panel d-flex"
-            onSubmit = {this.onSubmit}>
-                <input
-                type= "text"
+    console.log(text);
+    return (
+        <form className="bottom-panel d-flex" onSubmit={onSubmit}>
+            <input
+                type="text"
                 placeholder="О чем вы думаете ?"
                 className="form-control new-post-label"
-                onChange={this.onValueChange}
-                value = {this.state.text}
-                />
-                <button
-                    type="submit"
-                    className = "btn btn-outline-secondary">
-                    Добавить
-                </button>
-            </form>
-        )
-    }
-}
+                onChange={onValueChange}
+                value={text}
+            />
+            <button type="submit" className="btn btn-outline-secondary">
+                Добавить
+            </button>
+        </form>
+    );
+};
 
-
+export default PostAddForm;
