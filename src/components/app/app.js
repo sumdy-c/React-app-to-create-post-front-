@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import AppHeader from '../app-header/app-header';
-import SearchPanel from '../search-panel/search-panel';
-import PostStatusFilter from '../post-status_filter/post-status_filter';
-import PostList from '../post-list/post-list';
-import PostAddForm from '../post-add_form/post-add_form';
-import './app.css';
+import AppHeader from '../AppHeader/AppHeader';
+import SearchPanel from '../SearchPanel/SearchPanel';
+import PostStatusFilter from '../PostStatusFilter/PostStatusFilter';
+import PostList from '../PostList/PostList';
+import PostAddForm from '../PostAddForm/PostAddForm';
+import './App.css';
 
 const App = () => {
     const [data, setData] = useState([
