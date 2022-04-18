@@ -1,44 +1,45 @@
 import React from 'react';
-
-import './PostListItem.css';
+import style from './postListItem.module.css';
 
 const PostListItem = (data) => {
     const { label, onDelete, onToggleImp, onToggleLike, important, like } =
         data;
 
-    let classNames = 'app-list-item d-flex justify-content-between';
+    let classNames = `${style.appListItem} d-flex justify-content-between`;
 
     if (like) {
-        classNames += ' like';
+        classNames += ` ${style.like}`;
     }
 
     if (important) {
-        classNames += ' important';
+        classNames += ` ${style.important}`;
     }
+    
+    //console.log(style);
 
     return (
         <div className={classNames}>
-            <span onClick={onToggleLike} className="app-list-item-label">
+            <span onClick={onToggleLike} className= {style.appListItemLabel}>
                 {label}
             </span>
             <div className="d-flex justify-content-center align-items-center">
                 <button
                     type="button"
-                    className="btn-star btn-sm"
+                    className= {`${style.btnStar} btn-sm`}
                     onClick={onToggleImp}
                 >
-                    <i className="fa fa-star"></i>
+                    <i className='fa fa-star'></i>
                 </button>
 
                 <button
                     type="button"
-                    className="btn-trash btn-sm"
                     onClick={onDelete}
                 >
                     🗑
-                    <i className="fa fa-trash-o"></i>
                 </button>
-                <i className="fa fa-heart"></i>
+
+                <i className={`fa ${style.faHeart}`}>❤</i>
+
             </div>
         </div>
     );

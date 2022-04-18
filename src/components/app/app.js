@@ -4,7 +4,8 @@ import SearchPanel from '../SearchPanel/SearchPanel';
 import PostStatusFilter from '../PostStatusFilter/PostStatusFilter';
 import PostList from '../PostList/PostList';
 import PostAddForm from '../PostAddForm/PostAddForm';
-import './App.css';
+import styles from './app.module.css';
+import styleSearch from '../SearchPanel/searchPanel.module.css'
 
 const App = () => {
     const [data, setData] = useState([
@@ -29,6 +30,8 @@ const App = () => {
             id: 3,
         },
     ]);
+
+    
 
     const [term, setTerm] = useState('');
     const [filter, setFilter] = useState('all');
@@ -72,7 +75,7 @@ const App = () => {
             newItem,
             ...data.slice(index + 1),
         ];
-        console.log(data);
+        
         setData(newArr);
     };
 
@@ -105,9 +108,9 @@ const App = () => {
 
     const visiblePosts = filterPost(searchPost(data, term), filter);
     return (
-        <div className="app">
+        <div className = {styles.app}>
             <AppHeader liked={liked} allPost={allPost} />
-            <div className="search-panel d-flex">
+            <div className= {`${styleSearch.searchPanel} d-flex`} >
                 <SearchPanel onUpdateSearch={onUpdateSearch} props={term} />
                 <PostStatusFilter filter={filter} onFilterSel={onFilterSel} />
             </div>

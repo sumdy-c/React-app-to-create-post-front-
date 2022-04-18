@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './PostAddForm.css';
+import style from'./postAddForm.module.css';
 
 const PostAddForm = ({ onAdd }) => {
     const [text, setText] = useState('');
 
     const onValueChange = (e) => {
         setText(e.target.value);
-        console.log(text);
+        
     };
 
     const onSubmit = (e) => {
@@ -15,13 +15,13 @@ const PostAddForm = ({ onAdd }) => {
         setText('');
     };
 
-    console.log(text);
+    
     return (
-        <form className="bottom-panel d-flex" onSubmit={onSubmit}>
+        <form className= {`${style.bottomPanel} d-flex`} onSubmit={onSubmit}>
             <input
                 type="text"
                 placeholder="О чем вы думаете ?"
-                className="form-control new-post-label"
+                className= {style.newPostLabel}
                 onChange={onValueChange}
                 value={text}
             />

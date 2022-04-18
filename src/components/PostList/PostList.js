@@ -1,13 +1,13 @@
 import React from 'react';
 import PostListItem from '../PostListItem/PostListItem';
 import { ListGroup } from 'reactstrap';
-import './PostList.css';
+import style from'./postList.module.css';
 
 const PostList = ({ posts, onDelete, onToggleImp, onToggleLike }) => {
     const elem = posts.map((item) => {
         const { id, ...itemProps } = item;
         return (
-            <li key={item.id} className="list-group-item">
+            <li key={item.id} className = "list-group-item">
                 <PostListItem
                     {...itemProps}
                     onDelete={() => {
@@ -23,7 +23,7 @@ const PostList = ({ posts, onDelete, onToggleImp, onToggleLike }) => {
             </li>
         );
     });
-    return <ListGroup className="app-list">{elem}</ListGroup>;
+    return <ListGroup className= {style.appList}>{elem}</ListGroup>;
 };
 
 export default PostList;

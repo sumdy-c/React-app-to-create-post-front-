@@ -1,6 +1,5 @@
 import React from 'react';
-
-import './SearchPanel.css';
+import style from './searchPanel.module.css';
 
 const SearchPanel = (props) => {
     const onUpSearch = (e) => {
@@ -11,7 +10,7 @@ const SearchPanel = (props) => {
 
     return (
         <input
-            className="form-control search-input"
+            className = {`form-control ${style.searchInput}`}
             type="text"
             placeholder="Поиск по записям"
             onChange={onUpSearch}
